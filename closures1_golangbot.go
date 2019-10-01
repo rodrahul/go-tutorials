@@ -17,13 +17,13 @@ func appendStr() func(string) string {
 func main() {
 	a := appendStr()
 	b := appendStr()
-	
+
 	fmt.Println(a("World"))
 	fmt.Println(b("Everyone"))
 
 	fmt.Println(a("Gopher"))
 	fmt.Println(b("!"))
-	
+
 	// For my testing
 	fmt.Printf("Type of a is %T\n", a)
 }

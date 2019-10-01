@@ -16,6 +16,7 @@ func main() {
 	}
 	fmt.Println(f.Name(), "opened successfully")
 }
+
 /*
 If you read the documentation of the Open function carefully, you can see that it returns an error of type *PathError. PathError is a struct type and its implementation in the standard library is as follows,
 

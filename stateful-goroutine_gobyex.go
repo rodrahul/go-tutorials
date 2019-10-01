@@ -31,7 +31,7 @@ func main() {
 			case read := <-reads:
 				read.resp <- state[read.key]
 			case write := <-writes:
-				state[write.key] =write.val
+				state[write.key] = write.val
 				write.resp <- true
 			}
 		}

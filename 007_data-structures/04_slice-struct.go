@@ -31,7 +31,7 @@ func main() {
 		Motto: "Hatred never ceases with hatred but with love alone is healed",
 	}
 	sageSlice := []sage{
-		b,g,mlk,
+		b, g, mlk,
 	}
 
 	err := tpl.ExecuteTemplate(os.Stdout, "04_slice-struct.gohtml", sageSlice)

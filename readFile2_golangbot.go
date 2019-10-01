@@ -25,7 +25,7 @@ func main() {
 	filePtr, err := os.Open(*filePath)
 	defer func() {
 		if err = filePtr.Close(); err != nil {
-			log.Fatal("Error when closing file: ",err)
+			log.Fatal("Error when closing file: ", err)
 		}
 	}()
 
@@ -60,7 +60,5 @@ func main() {
 	}
 
 	//--------------------------------------------------------
-
-
 
 }

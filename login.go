@@ -112,7 +112,7 @@ func main() {
 	u.RawQuery = v.Encode()
 
 	fmt.Println(u.String())
-	req,_ = http.NewRequest(http.MethodGet, u.String(), nil)
+	req, _ = http.NewRequest(http.MethodGet, u.String(), nil)
 	req, _ = http.NewRequest(http.MethodGet, urlString, nil)
 	req.Header.Add("x-session-token", loginResponse.Token)
 	req.Header.Add("Range", "records 0-1")
@@ -121,7 +121,7 @@ func main() {
 		panic(err)
 	}
 	defer resp.Body.Close()
-	fmt.Printf("%+v\n",resp.Header)
+	fmt.Printf("%+v\n", resp.Header)
 	body, _ = ioutil.ReadAll(resp.Body)
 	fmt.Println(string(body))
 

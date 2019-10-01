@@ -70,7 +70,7 @@ func getTranscriptWorker(wg *sync.WaitGroup) {
 		if err != nil {
 			if v, ok := err.(*url.Error); ok {
 				if v.Err.Error() == "EOF" {
-					fmt.Println("EOF Error: ",err, "for studentId:", personId)
+					fmt.Println("EOF Error: ", err, "for studentId:", personId)
 					return
 				} else {
 					panic(err)

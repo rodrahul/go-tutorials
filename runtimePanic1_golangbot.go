@@ -10,7 +10,7 @@ func recover() interface{}
 
 */
 func recoverFromA() {
-	if r:= recover(); r!=nil {
+	if r := recover(); r != nil {
 		fmt.Println("Recovered from func a: ", r)
 		//debug.PrintStack()
 	}
@@ -18,7 +18,7 @@ func recoverFromA() {
 
 func a() {
 	defer recoverFromA()
-	n := []int{1,2,3}
+	n := []int{1, 2, 3}
 	fmt.Println(n[3])
 	fmt.Println("Normally returned from a")
 }

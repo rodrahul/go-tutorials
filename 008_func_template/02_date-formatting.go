@@ -18,7 +18,7 @@ func monthDayYear(t time.Time) string {
 }
 
 var fm = template.FuncMap{
-	"fdateMDY" : monthDayYear,
+	"fdateMDY": monthDayYear,
 }
 
 func main() {

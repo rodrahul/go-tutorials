@@ -16,8 +16,8 @@ var (
 	jobs    = make(chan Job, 10)
 	results = make(chan Result, 10)
 
-	noOfWorkers = flag.Int("workers", 1, "No of Worker routines")
-	noOfJobs    = flag.Int("jobs", 1, "No of Jobs")
+	noOfWorkers  = flag.Int("workers", 1, "No of Worker routines")
+	noOfJobs     = flag.Int("jobs", 1, "No of Jobs")
 	printResults = flag.Bool("print", false, "True if you want to print results")
 )
 
@@ -90,9 +90,9 @@ func main() {
 	startTime := time.Now()
 	noOfJobs := *noOfJobs
 	noOfWorkers := *noOfWorkers
-	go allocate(noOfJobs)				// populates job's channel
+	go allocate(noOfJobs) // populates job's channel
 	done := make(chan bool)
-	go createWorkerPool(noOfWorkers)	// will create go routines
+	go createWorkerPool(noOfWorkers) // will create go routines
 	go result(done)
 	<-done
 	endTime := time.Now()

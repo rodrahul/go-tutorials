@@ -29,7 +29,6 @@ func main() {
 	body, _ := ioutil.ReadAll(resp.Body)
 	fmt.Println("response Body:", string(body))
 
-
 	url2 := "https://jcp.helius.com/login/authenticate"
 	fmt.Println("URL:>", url2)
 }

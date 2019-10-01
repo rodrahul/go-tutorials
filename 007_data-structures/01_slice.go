@@ -12,7 +12,7 @@ func init() {
 	tpl = template.Must(template.ParseGlob("./template/*"))
 }
 
-func main()  {
+func main() {
 	sages := []string{
 		"Gandhi",
 		"MKL",

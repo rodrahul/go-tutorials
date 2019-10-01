@@ -58,8 +58,8 @@ func Login(userName, password string) Person {
 	req.Header.Add("Accept", "application/json, text/plain, */*")
 	req.Header.Add("Content-Type", "application/json")
 	tr := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
-		DisableKeepAlives:true,
+		TLSClientConfig:   &tls.Config{InsecureSkipVerify: true},
+		DisableKeepAlives: true,
 	}
 
 	client := &http.Client{Transport: tr}

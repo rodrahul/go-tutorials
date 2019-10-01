@@ -52,8 +52,8 @@ func main() {
 	sages := []sage{b, g, m}
 	cars := []car{f, c}
 
-	data := struct{
-		Wisdom []sage
+	data := struct {
+		Wisdom    []sage
 		Transport []car
 	}{
 		sages,
