@@ -1,0 +1,73 @@
+version: '3.5'
+
+networks:
+  private:
+    driver: overlay
+    
+services:
+  selenium-hub:
+    image: selenium/hub:3.13.0-boron
+    container_name: selenium-hub
+    environment:
+      - GRID_NEW_SESSION_WAIT_TIMEOUT=3000
+      - GRID_MAX_SESSION=10
+      - GRID_BROWSER_TIMEOUT=120
+      - GRID_TIMEOUT=90
+      - TZ=US/Eastern
+    ports:
+      - "4444:4444"
+    deploy:
+        mode: global
+        placement:
+            constraints:
+                - node.role == manager
+    networks:
+      - private
+
+  chrome:
+    image: selenium/node-chrome-debug:3.13.0-boron
+    container_name: chrome
+    depends_on:
+      - selenium-hub
+    ports:
+      - 5901:5900
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - NODE_MAX_SESSION=5
+      - NODE_MAX_INSTANCES=5
+      - NODE_BROWSER_TIMEOUT=120
+      - NODE_TIMEOUT=120
+      - TZ=US/Eastern
+    volumes:
+      - /dev/shm:/dev/shm
+    deploy:
+        replicas: 1
+        constraints:
+                - node.role == worker
+    entrypoint: bash -c 'SE_OPTS="-host $$HOSTNAME" /opt/bin/entry_point.sh'
+    
+    networks:
+      - private
+
+  # firefox:
+  #   image: selenium/node-firefox-debug:3.12.0-cobalt
+  #   container_name: firefox
+  #   depends_on:
+  #     - selenium-hub
+  #   ports:
+  #     - 5902:5900
+  #   environment:
+  #     - HUB_HOST=selenium-hub
+  #     - HUB_PORT=4444
+  #     - NODE_MAX_SESSION=5
+  #     - NODE_MAX_INSTANCES=5
+  #     - NODE_BROWSER_TIMEOUT=180
+  #     - NODE_TIMEOUT=120
+  #     - TZ=US/Eastern
+  #   volumes:
+  #     - /dev/shm:/dev/shm
+  #   networks:
+  #     - private
+
+

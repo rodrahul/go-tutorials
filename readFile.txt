@@ -1,0 +1,4 @@
+In line no. 10 of the program above, we are creating a New Box. A box represents a folder whose contents will be embedded to the binary. In this case I am specifying the filehandling folder which contains test.txt. In the next line we read the contents of the file and print it.
+
+When we are in development phase, we can use the go install command to run this program. It will work as expected. packr is intelligent enough to load the file from disk during development phase.
+

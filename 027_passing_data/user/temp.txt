@@ -1,0 +1,5 @@
+Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
+
+Featured articles
+Go 2018 Survey Results
+This post summarizes the results of our 2018 user survey and draws comparisons between the results of our prior surveys from 2016 and 2017.

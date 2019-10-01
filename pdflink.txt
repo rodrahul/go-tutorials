@@ -1,0 +1,3 @@
+http://openmymind.net/assets/go/go.pdf
+
+https://tour.golang.org/flowcontrol/6

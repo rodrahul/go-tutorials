@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solution For 01 05 Hands on</title>
+</head>
+<body>
+
+<header>
+    <h1>Hello, {{.}}</h1>
+     {{range $k, $v := .}}
+            <p>{{$k}}</p>
+            <ul>
+                {{range $v}}
+                    <li>{{.}}</li>
+                {{end}}
+            </ul>
+     {{end}}
+</header>
+
+</body>
+</html>
