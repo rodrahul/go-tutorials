@@ -1,44 +1,31 @@
 package main
 
-import (
-	"database/sql"
-	"fmt"
-	_ "github.com/go-sql-driver/mysql"
-)
+import "fmt"
+
+type A struct {
+	a int
+}
+
+type B struct {
+	b int
+}
+
+type myInt1 int
+type myInt2 int
 
 func main() {
-	fmt.Println("Go MySQL Tutorial")
+	a := A{1}
+	b := B{2}
+	m1 := myInt1(1)
+	m2 := myInt2(2)
 
-	// Open up our database connection.
-	// I've set up a database on my local machine using phpmyadmin.
-	// The database is called testDb
-	db, err := sql.Open("mysql", "tempHughes:pi@s9m@tcp(10.19.129.63:3306)/lems")
+	fmt.Printf("Type of A:%T Value: %+v\n", a, a)
+	fmt.Printf("Type of A:%T Value: %+v\n", b, b)
 
-	// if there is an error opening the connection, handle it
-	if err != nil {
-		panic(err.Error())
-	}
+	fmt.Printf("Type of m1:%T Value: %+v\n", m1, m1)
+	fmt.Printf("Type of m2:%T Value: %+v\n", m2, m2)
 
-	// defer the close till after the main function has finished
-	// executing
-	defer db.Close()
-
-	results, err := db.Query(`SELECT 
-	Organization_Name
-FROM
-	Lms_Organization
-WHERE 
-	Organization_Status = 'Active'`)
-	if err != nil {
-		panic(err.Error()) // proper error handling instead of panic in your app
-	}
-	for results.Next() {
-		var name string
-		err = results.Scan(&name)
-		if err != nil {
-			fmt.Println("err after scanning", err)
-		}
-		fmt.Println(name)
-	}
+	m1 = myInt1(m2)
+	fmt.Printf("Type of m1:%T Value: %+v\n", m1, m1)
 
 }

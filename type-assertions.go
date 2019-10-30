@@ -1,5 +1,7 @@
 /*
 A type assertion provides access to an interface value's underlying concrete value
+Interface values can be thought of as a tuple of a value and concrete type
+(value, type)
 */
 
 package main

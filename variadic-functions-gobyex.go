@@ -1,5 +1,5 @@
 /*
-Variadic funcitons can be called with any number of trailing arguments.
+Variadic functions can be called with any number of trailing arguments.
 For example, fmt.println is a common variadic functions
 */
 
